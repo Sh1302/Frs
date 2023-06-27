@@ -1,0 +1,35 @@
+<div class="bg-image" 
+     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+            height: 100vh">
+ 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div fxLayoutAlign="center center" fxFlexFill class="div" >
+   
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">LOGIN PAGE</mat-toolbar>
+        <form [formGroup]="login" fxLayoutAlign="strecth" fxLayout="column" class="div1" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label> Username </mat-label>
+                <input matInput type="text" id="name" formControlName="username">
+                <mat-icon matPrefix>perm_identity</mat-icon>
+                <mat-error *ngIf="login.value.username || login.controls['username'].touched">Enter the username</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label> Password </mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="login.value.password || login.controls['password'].touched">Enter the Valid Password</mat-error>
+            </mat-form-field>
+            <div class="example-label">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!login.valid">LOGIN</button>
+            </div>
+            </form>
+            <br>
+        <p style="align-self: center;"> New user create your account!! </p>
+        <div class="example-label" (click)="OnSigin()">
+            <button mat-raised-button color="primary" type="submit" >Sign in</button>
+        </div>
+        <br>
+    </mat-card>
+</div>
+</div>

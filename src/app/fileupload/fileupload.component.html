@@ -1,0 +1,23 @@
+
+<input type="file" (change)="onFileSelected($event)">
+    <button (click)="onUpload()">Upload</button>
+    <p>{{ message }}</p>
+    <div>
+        <form [formGroup]="date">
+            <label>Time Period</label>
+            <select formControlName="selectedValue">
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+              </select>
+            <br>
+            <br>
+            <label>Time Period</label>
+            <input input="number" id="number" formControlName ="number">
+            <br>
+            <br>
+            <button (click)="Showpredict()">Predict</button>
+        </form>
+        <br>
+        <img [src]="predict" alt="Sales forecast plot">
+    </div>
+    
